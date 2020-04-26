@@ -6,12 +6,13 @@ from sklearn.linear_model import LinearRegression
 
 routa = "COVID 19/ccaa_covid19_confirmados_pcr.csv"
 
+FECHA = "2020-04-19"
 #routa = "COVID 19/ccaa_covid19_casos.csv"
 
 def print_country(dataset,country_name):
     countrypre = dataset.loc[country_name,:]
     #print(countrypre)
-    country = countrypre["2020-04-16":]
+    country = countrypre[FECHA:]
     country_pct = country.pct_change()
     #print(country)
     #print("percentatges"," ",country_name)
@@ -22,7 +23,7 @@ def print_country(dataset,country_name):
 
 def get_growth_factor(dataset,country_name):
     countrypre = dataset.loc[country_name,:]
-    country = countrypre["2020-04-16":]
+    country = countrypre[FECHA:]
     diferences = country.diff()
 
     #print(diferences[-3:])
@@ -37,7 +38,7 @@ def get_growth_factor(dataset,country_name):
     
 def get_r0_factor(dataset,country_name):
     countrypre = dataset.loc[country_name,:]
-    country = countrypre["2020-04-16":]
+    country = countrypre[FECHA:]
     diferences = country.diff()
 
     print(diferences[-6:])
@@ -68,7 +69,7 @@ def print_report(dataset,country_name):
 
     r0 = get_r0_factor(timeseries,country_name)
     print('printamos el r0 factor')
-    print(r0[-6:])
+    print(r0[-1:])
 
  
 
