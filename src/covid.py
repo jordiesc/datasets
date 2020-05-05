@@ -81,6 +81,8 @@ for region in timeseries.index:
     print_report(timeseries,region)
 
 #print_country(timeseries,'UK')
+print("pinto la suma")
+print(timeseries.sum())
 
 
 
